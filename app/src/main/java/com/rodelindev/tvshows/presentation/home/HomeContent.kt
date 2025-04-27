@@ -12,10 +12,9 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
@@ -35,7 +33,6 @@ import com.rodelindev.tvshows.domain.model.TvShow
 import com.rodelindev.tvshows.domain.model.TvShowFilter
 import com.rodelindev.tvshows.presentation.components.FilterChips
 import com.rodelindev.tvshows.presentation.components.TvShowItem
-import com.rodelindev.tvshows.presentation.home.components.PageLoader
 import com.rodelindev.tvshows.ui.theme.COMMON_PADDING
 import com.rodelindev.tvshows.ui.theme.NeonBlue
 import com.rodelindev.tvshows.ui.theme.backgroundColor
@@ -81,24 +78,18 @@ fun HomeContent(
 
             tvShows.apply {
                 when {
-                    loadState.refresh is LoadState.Error -> {
-                        item {
-                            ErrorMoreRetry(
-                                onRetry = { retry() }
-                            )
-                        }
-                    }
-
                     loadState.append is LoadState.Loading -> {
                         item(span = { GridItemSpan(2) }) {
                             LoadingNextPageItem(modifier = modifier)
                         }
                     }
 
-                    loadState.append is LoadState.Error -> {
+                    loadState.refresh is LoadState.Error -> {
                         item(span = { GridItemSpan(2) }) {
                             ErrorMoreRetry(
-                                onRetry = { retry() }
+                                onRetry = {
+                                    retry()
+                                }
                             )
                         }
                     }
@@ -141,7 +132,6 @@ fun ErrorMoreRetry(onRetry: () -> Unit) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(COMMON_PADDING),
-            /*shape = RoundedCornerShape(6.dp),*/
             contentPadding = PaddingValues(3.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = NeonBlue
