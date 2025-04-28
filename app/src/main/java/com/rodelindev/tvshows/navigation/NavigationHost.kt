@@ -8,15 +8,16 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.rodelindev.tvshows.presentation.detail.DetailScreen
 import com.rodelindev.tvshows.presentation.home.HomeScreen
+import com.rodelindev.tvshows.presentation.profile.ProfileScreen
 import com.rodelindev.tvshows.presentation.splash.SplashScreen
 
 
 @Composable
 fun NavigationHost(
-    navHostController: NavHostController,
+    navController: NavHostController,
 ) {
     NavHost(
-        navController = navHostController,
+        navController = navController,
         startDestination = NavigationRoute.Splash
     ) {
         composable<NavigationRoute.Splash>(
@@ -24,8 +25,8 @@ fun NavigationHost(
         ) {
             SplashScreen(
                 navigateToHome = {
-                    navHostController.navigate(NavigationRoute.Home) {
-                        popUpTo(navHostController.graph.id) {
+                    navController.navigate(NavigationRoute.Home) {
+                        popUpTo(navController.graph.id) {
                             inclusive = true
                         }
                     }
@@ -57,23 +58,55 @@ fun NavigationHost(
         ) {
             HomeScreen(
                 onClickItem = { tvShow ->
-                    navHostController.navigate(
+                    navController.navigate(
                         NavigationRoute.Detail(tvShow.id)
                     )
-                    /*isFavorite = tvShowArgument.isFavorite,*/
-                    /*category = tvShowArgument.category,*/
                 },
                 navigateToProfile = {
-                    navHostController.popBackStack()
-                    navHostController.navigate(NavigationRoute.Profile)
+                    navController.navigate(NavigationRoute.Profile)
                 }
             )
         }
 
-        composable<NavigationRoute.Detail> {
+        composable<NavigationRoute.Detail>(
+            enterTransition = {
+                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left)
+            },
+            exitTransition = {
+                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left)
+            },
+            popEnterTransition = {
+                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right)
+            },
+            popExitTransition = {
+                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
+            }
+
+        ) {
             DetailScreen(
                 onBack = {
-                    navHostController.popBackStack()
+                    navController.navigateUp()
+                }
+            )
+        }
+
+        composable<NavigationRoute.Profile>(
+            enterTransition = {
+                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left)
+            },
+            exitTransition = {
+                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left)
+            },
+            popEnterTransition = {
+                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right)
+            },
+            popExitTransition = {
+                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
+            }
+        ) {
+            ProfileScreen(
+                onBack = {
+                    navController.popBackStack()
                 }
             )
         }

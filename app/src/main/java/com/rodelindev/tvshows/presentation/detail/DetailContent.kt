@@ -61,6 +61,7 @@ import com.rodelindev.tvshows.ui.theme.PADDING_24
 import com.rodelindev.tvshows.ui.theme.PADDING_4
 import com.rodelindev.tvshows.ui.theme.PADDING_8
 import com.rodelindev.tvshows.ui.theme.backgroundCardColor
+import com.rodelindev.tvshows.ui.theme.backgroundColor
 import com.rodelindev.tvshows.ui.theme.textColor
 import com.rodelindev.tvshows.utils.constants.DetailConstants
 import com.rodelindev.tvshows.utils.constants.DetailConstants.CARD_HEIGHT_ITEM
@@ -94,6 +95,7 @@ fun DetailContent(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(scrollState)
+                .background(MaterialTheme.colorScheme.backgroundColor)
         ) {
             DetailHeader(
                 titleTvShow = tvShow.name,

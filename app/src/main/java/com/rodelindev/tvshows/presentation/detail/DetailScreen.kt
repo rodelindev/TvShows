@@ -22,9 +22,7 @@ fun DetailScreen(
     onBack: () -> Unit,
 ) {
 
-    val scrollState = rememberScrollState()
     val state by viewModel.state.collectAsStateWithLifecycle()
-
 
     when {
         state.isLoading -> {
@@ -46,7 +44,7 @@ fun DetailScreen(
                  state.tvShow?.let { tvShow ->
                      DetailContent(
                          tvShow = tvShow,
-                         scrollState = scrollState,
+                         scrollState = rememberScrollState(),
                          modifier = Modifier
                              .fillMaxSize()
                              .padding(top = innerPadding.calculateTopPadding())

@@ -40,6 +40,24 @@ fun TvShowDTO.toDomain(): TvShow {
     )
 }
 
+fun TvShowEntity.toDomain(): TvShow {
+    return TvShow(
+        backdropPath = backdropPath,
+        firstAirDate = firstAirDate,
+        id = id,
+        name = name,
+        originalLanguage = originalLanguage,
+        originalName = originalName,
+        overview = overview,
+        popularity = popularity,
+        posterPath = posterPath,
+        voteAverage = voteAverage,
+        voteCount = voteCount,
+        isFavorite = true,
+        seasons = emptyList()
+    )
+}
+
 fun List<TvShowDTO>.toDomainList(): List<TvShow> {
     return this.map {
         it.toDomain()

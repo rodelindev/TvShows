@@ -1,6 +1,5 @@
 package com.rodelindev.tvshows.presentation.components
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
+import com.rodelindev.tvshows.data.local.entities.TvShowEntity
 import com.rodelindev.tvshows.domain.model.TvShow
 import com.rodelindev.tvshows.ui.theme.COMMON_PADDING
 import com.rodelindev.tvshows.ui.theme.PADDING_8
@@ -101,50 +100,4 @@ fun TvShowItem(
     }
 }
 
-@Composable
-@Preview
-fun TvItemPreview() {
-    TvShowItem(
-        tvShow = TvShow(
-            backdropPath = "",
-            firstAirDate = "",
-            id = 0,
-            name = "SpongeBob",
-            originalLanguage = "",
-            originalName = "",
-            overview = "",
-            popularity = 0.0,
-            posterPath = "",
-            voteAverage = 4.5,
-            voteCount = 0,
-            isFavorite = false,
-            /*category = "",*/
-            seasons = emptyList()
-        ),
-        onClickItem = {}
-    )
-}
 
-@Composable
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
-fun TvItemPreviewDark() {
-    TvShowItem(
-        tvShow = TvShow(
-            backdropPath = "",
-            firstAirDate = "",
-            id = 0,
-            name = "Big Hero 6",
-            originalLanguage = "",
-            originalName = "",
-            overview = "",
-            popularity = 0.0,
-            posterPath = "",
-            voteAverage = 5.0,
-            voteCount = 0,
-            isFavorite = false,
-            /*category = "",*/
-            seasons = emptyList()
-        ),
-        onClickItem = {}
-    )
-}

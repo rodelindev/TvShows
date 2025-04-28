@@ -7,5 +7,5 @@ import com.rodelindev.tvshows.domain.repository.TvShowRepository
 class GetFavoriteTvShowsUseCase(
     private val tvShowRepository: TvShowRepository
 ) {
-    suspend operator fun invoke(): List<TvShowEntity> = tvShowRepository.getFavoritesTvShows()
+    suspend operator fun invoke(): List<TvShow> = tvShowRepository.getFavoritesTvShows()
 }

@@ -11,5 +11,5 @@ interface TvShowRepository {
     fun getTvShows(tvShowFilter: TvShowFilter): Flow<PagingData<TvShow>>
     suspend fun getDetailTvShowById(tvShowId: Int): Result<TvShow>
     suspend fun toggleFavorite(tvShow: TvShow)
-    suspend fun getFavoritesTvShows(): List<TvShowEntity>
+    suspend fun getFavoritesTvShows(): List<TvShow>
 }

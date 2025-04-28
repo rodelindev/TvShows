@@ -5,7 +5,6 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.rodelindev.tvshows.data.local.dao.TvShowDao
-import com.rodelindev.tvshows.data.local.entities.TvShowEntity
 import com.rodelindev.tvshows.data.mapper.toDomain
 import com.rodelindev.tvshows.data.mapper.toTvShowEntity
 import com.rodelindev.tvshows.data.remote.TvShowRemoteMediator
@@ -51,7 +50,7 @@ class TvShowRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFavoritesTvShows(): List<TvShowEntity> {
-        return tvShowDao.getFavoritesTvShows()
+    override suspend fun getFavoritesTvShows(): List<TvShow> {
+        return tvShowDao.getFavoritesTvShows().map { it.toDomain() }
     }
 }
