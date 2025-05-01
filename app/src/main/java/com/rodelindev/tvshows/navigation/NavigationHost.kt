@@ -1,7 +1,8 @@
 package com.rodelindev.tvshows.navigation
 
-import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -11,14 +12,17 @@ import com.rodelindev.tvshows.presentation.home.HomeScreen
 import com.rodelindev.tvshows.presentation.profile.ProfileScreen
 import com.rodelindev.tvshows.presentation.splash.SplashScreen
 
-
 @Composable
 fun NavigationHost(
     navController: NavHostController,
 ) {
     NavHost(
         navController = navController,
-        startDestination = NavigationRoute.Splash
+        startDestination = NavigationRoute.Splash,
+        enterTransition = { slideInHorizontally { it } },
+        exitTransition = { slideOutHorizontally { - it } },
+        popEnterTransition = { slideInHorizontally { - it } },
+        popExitTransition = { slideOutHorizontally { it } }
     ) {
         composable<NavigationRoute.Splash>(
             enterTransition = { slideInVertically() }
@@ -34,28 +38,7 @@ fun NavigationHost(
             )
         }
 
-        composable<NavigationRoute.Home>(
-            enterTransition = {
-                slideIntoContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Left
-                )
-            },
-            exitTransition = {
-                slideOutOfContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Left
-                )
-            },
-            popEnterTransition = {
-                slideIntoContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Right
-                )
-            },
-            popExitTransition = {
-                slideOutOfContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Right
-                )
-            }
-        ) {
+        composable<NavigationRoute.Home> {
             HomeScreen(
                 onClickItem = { tvShow ->
                     navController.navigate(
@@ -68,21 +51,7 @@ fun NavigationHost(
             )
         }
 
-        composable<NavigationRoute.Detail>(
-            enterTransition = {
-                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left)
-            },
-            exitTransition = {
-                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left)
-            },
-            popEnterTransition = {
-                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right)
-            },
-            popExitTransition = {
-                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
-            }
-
-        ) {
+        composable<NavigationRoute.Detail> {
             DetailScreen(
                 onBack = {
                     navController.navigateUp()
@@ -90,20 +59,7 @@ fun NavigationHost(
             )
         }
 
-        composable<NavigationRoute.Profile>(
-            enterTransition = {
-                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left)
-            },
-            exitTransition = {
-                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left)
-            },
-            popEnterTransition = {
-                slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right)
-            },
-            popExitTransition = {
-                slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
-            }
-        ) {
+        composable<NavigationRoute.Profile> {
             ProfileScreen(
                 onBack = {
                     navController.popBackStack()
