@@ -40,12 +40,7 @@ First of all, I want to explain the main development steps of the development.
 * Dependency Injection
 * Navigation Component
 
-<p align="left">
-<a><img src="https://github.com/rodelindev/TvShows/issues/1" style="height: 20%; width:20%;" alt="Image App"></a>
-<a><img src="https://github.com/rodelindev/TvShows/issues/2" style="height: 20%; width:20%;" alt="Image App"></a>
-<a><img src="https://github.com/rodelindev/TvShows/issues/3" style="height: 20%; width:20%;" alt="Image App"></a>
-<a><img src="https://github.com/rodelindev/TvShows/issues/4" style="height: 20%; width:20%;" alt="Image App"></a>
-</p>
+![Image](https://github.com/user-attachments/assets/97b0a761-d8c9-477f-96a1-123684bd8f19)
 
 > API documentation based: [The Movie DB](https://api.themoviedb.org/)
 >
