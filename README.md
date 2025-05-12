@@ -41,6 +41,9 @@ First of all, I want to explain the main development steps of the development.
 * Navigation Component
 
 ![Image](https://github.com/user-attachments/assets/97b0a761-d8c9-477f-96a1-123684bd8f19)
+![Image](https://github.com/user-attachments/assets/ee04be69-cc96-4d43-96f8-b652325bf8ca)
+![Image](https://github.com/user-attachments/assets/062588ab-4b05-4db8-a082-58319641caca)
+![Image](https://github.com/user-attachments/assets/a083703d-884f-458b-b3d4-440f1c1bb8c0)
 
 > API documentation based: [The Movie DB](https://api.themoviedb.org/)
 >
