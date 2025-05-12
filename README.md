@@ -41,7 +41,7 @@ First of all, I want to explain the main development steps of the development.
 * Navigation Component
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/97b0a761-d8c9-477f-96a1-123684bd8f19" alt="Splash Screen" width="250"/>
+  <img src="https://github.com/user-attachments/assets/cac2db6c-3510-4c86-9f07-85fe14622735" alt="Splash Screen" width="250"/>
   <img src="https://github.com/user-attachments/assets/97b0a761-d8c9-477f-96a1-123684bd8f19" alt="Home" width="250"/>
   <img src="https://github.com/user-attachments/assets/ee04be69-cc96-4d43-96f8-b652325bf8ca" alt="Home Dark" width="250"/>
   <img src="https://github.com/user-attachments/assets/a083703d-884f-458b-b3d4-440f1c1bb8c0" alt="Detail" width="250"/>
