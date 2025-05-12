@@ -41,9 +41,10 @@ First of all, I want to explain the main development steps of the development.
 * Navigation Component
 
 <p align="left">
-<a><img src="https://i.imgur.com/llF9kV9.png" style="height: 20%; width:20%;" alt="Image App"></a>
-<a><img src="https://i.imgur.com/5HkTFcz.png" style="height: 20%; width:20%;" alt="Image App"></a>
-<a><img src="https://i.imgur.com/eGcpOcc.png" style="height: 20%; width:20%;" alt="Image App"></a>
+<a><img src="https://github.com/rodelindev/TvShows/issues/1" style="height: 20%; width:20%;" alt="Image App"></a>
+<a><img src="https://github.com/rodelindev/TvShows/issues/2" style="height: 20%; width:20%;" alt="Image App"></a>
+<a><img src="https://github.com/rodelindev/TvShows/issues/3" style="height: 20%; width:20%;" alt="Image App"></a>
+<a><img src="https://github.com/rodelindev/TvShows/issues/4" style="height: 20%; width:20%;" alt="Image App"></a>
 </p>
 
 > API documentation based: [The Movie DB](https://api.themoviedb.org/)
