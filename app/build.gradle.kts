@@ -2,10 +2,8 @@ import java.util.Properties
 
 plugins {
     alias(libs.plugins.androidApplication)
-    //alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.kotlin.android)
-    //Compose compiler kotlin 2.0.0
-    alias(libs.plugins.kotlinx.compose.compiler)
+    alias(libs.plugins.compose.compiler)
     //Serialization
     alias(libs.plugins.kotlinx.serialization)
     // Kotlin ksp
@@ -16,12 +14,12 @@ plugins {
 
 android {
     namespace = "com.rodelindev.tvshows"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.rodelindev.tvshows"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
